@@ -1,20 +1,31 @@
-// crypto-portfolio-backend/server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
+const cors = require('cors');
+require('dotenv').config();
 
-// Middleware
-app.use(express.json());
+const app = express();
+const port = process.env.PORT || 4000;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://mongo:27017/crypto', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch((err) => {
+  console.error('Error connecting to MongoDB', err);
+});
+
+// Middleware
+app.use(cors());
+app.use(express.json());
 
 // Routes
-const usersRouter = require('./api/users');
-app.use('/api/users', usersRouter);
+const portfolioRouter = require('./api/portfolio');
+app.use('/api/portfolio', portfolioRouter);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
+
