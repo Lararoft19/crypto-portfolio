@@ -1,15 +1,21 @@
 {
   "name": "crypto-portfolio-backend",
   "version": "1.0.0",
+  "description": "Backend application for Crypto Portfolio",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+    // Add other scripts as needed
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.10"
+    "mongoose": "^6.1.2"
+    // Add other dependencies as needed
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+    // Add dev dependencies as needed
   }
 }
 

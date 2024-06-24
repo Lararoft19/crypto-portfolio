@@ -1,17 +1,21 @@
 {
   "name": "crypto-portfolio-frontend",
   "version": "1.0.0",
-  "private": true,
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
-  },
+  "description": "Frontend application for Crypto Portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+    // Add other dependencies as needed
+  },
+  "devDependencies": {
+    // Add dev dependencies as needed
   }
 }
 
