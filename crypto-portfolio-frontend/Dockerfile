@@ -10,15 +10,18 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Build the application
-RUN npm run build
-
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose the port that the app runs on
+# Build the application
+RUN npm run build
+
+# Install serve to serve the build directory
+RUN npm install -g serve
+
+# Expose the port the app runs on
 EXPOSE 3000
 
 # Command to run the application
-CMD ["npm", "start"]
+CMD ["serve", "-s", "build"]
 
